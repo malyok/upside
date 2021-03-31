@@ -19,7 +19,7 @@ optional arguments:
 
 # Possible improvements
 Lambda handler uses regexp functionality to extract data. Probably, usage of HTML parsers like Beautiful Soup or lxml may improve the speed of processing.
-The main flow is synchronized it would be great to switch to async functionality.
+The main flow is synchronized it would be great to switch to async functionality. Add S3 storage for storing history instead of local.
 
 # Testing
 Cover main.py script with unit tests that must check the following cases:
