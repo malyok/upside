@@ -18,5 +18,21 @@ optional arguments:
 ```
 
 # Possible improvements
+Lambda handler uses regexp functionality to extract data. Probably, usage of HTML parsers like Beautiful Soup or lxml may improve the speed of processing.
+The main flow is synchronized it would be great to switch to async functionality.
 
 # Testing
+Cover main.py script with unit tests that must check the following cases:
+- run script with wrong arguments
+- run script with -h argument to ensure that the help is present
+- verify script work in case of network unavailability
+- verify script work in case of empty result from lambda
+- verify storing of the history file
+- verify correct values of statistics with different input data
+
+Cover handler.py script with unit tests that must check the following cases:
+- verify script work in case of network unavailability
+- verify script work in case of empty response
+- verify script work in case of response decoding issues
+- check status codes for different circumstances
+- check that number of updates is calculated in accordance with the requirement in 30 days
