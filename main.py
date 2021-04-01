@@ -30,9 +30,9 @@ def save_history(data):
         json.dump(data_to_save, fout, indent=4)
         
 
-def get_history_stats():
+def get_history_stats(min_updates):
     df = pandas.read_json(HISTORY_FILE)
-    filtered = df[df['number_updates_last_month'] > 0]
+    filtered = df[df['number_updates_last_month'] > min_updates]
     return (filtered['number_updates_last_month'].sum(),
             filtered['number_updates_last_month'].mean())
 
@@ -52,6 +52,6 @@ if __name__ == '__main__':
         save_history(result)
 
     if args.stats:
-        print(get_history_stats())
+        print(get_history_stats(args.stats))
     
 # EOF
